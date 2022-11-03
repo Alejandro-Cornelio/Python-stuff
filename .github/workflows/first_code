@@ -1,0 +1,24 @@
+from random import randint as rand
+N=10000
+v=[1,2,3]
+vf=[1,3,2]
+Res=[]
+for j in range(N):
+    i=0
+    while v!=vf:
+        k=rand(0,2)
+        l=rand(0,2)
+        a=v[k]
+        v[k]=v[l]
+        v[l]=a
+        i=i+1
+    Res.append(i)
+    v=[1,2,3]
+    vf=[1,3,2]
+mqd=0    
+for m in range(N):
+    if Res[m]==0:
+        mqd=mqd+1
+    
+print('Porcentaje de permutaciones mayores que 10: '+str(mqd/N*100)+'%')    
+print('La media de permutaciones menores que 10 es: '+str(sum(Res)/N))
